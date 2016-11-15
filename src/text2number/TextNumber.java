@@ -14,10 +14,6 @@ public class TextNumber {
 	Integer[] numberInt = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
 			15, 16, 17, 18, 19, 20, 30, 40, 50, 60, 70, 80, 90, 100, 1000,
 			1000000 };
-	
-	public static final String MILLION = "MILLION";
-	public static final String THOUSAND = "THOUSAND";
-	public static final String HUNDRED = "HUNDRED";
 
 	/**
 	 * Metodo principal
@@ -99,47 +95,6 @@ public class TextNumber {
 		}
 
 		return acumulado;
-	}
-
-	/**
-	 * Transforma un numero de texto a entero
-	 * 
-	 * @param texto
-	 *            numero a transformar
-	 * @return entero con el valor obtenido
-	 */
-	public int transformaCadena(String texto) {
-		texto = texto.toUpperCase(); // "NINE HUNDRED AND NINETY-NINE";
-		texto = texto.replace('-', ' ');
-		texto = texto.replace(" AND ", " ");
-		int numeroEntrante = 0;
-		int cantMill = 0, cantThou = 0, cantHund = 0, cantUnid = 0;
-		
-		//String cadMill = texto.in indexOf(str, fromIndex);
-		int indMill = texto.indexOf(MILLION);
-		if (indMill > 0){
-			String cadMill = texto.substring(0, indMill+MILLION.length());
-			texto = texto.substring(indMill+MILLION.length());
-			cantMill = letters2numbers(cadMill);
-		}
-		int indThou = texto.indexOf(THOUSAND);
-		if (indThou > 0){
-			String cadThou = texto.substring(0, indThou+THOUSAND.length());
-			texto = texto.substring(indThou+THOUSAND.length());
-			cantThou = letters2numbers(cadThou);
-		}
-		int indHund = texto.indexOf(HUNDRED);
-		if (indHund > 0){
-			String cadHund = texto.substring(0, indHund+HUNDRED.length());
-			texto = texto.substring(indHund+HUNDRED.length());
-			cantHund = letters2numbers(cadHund);
-		}
-		if (texto.length()>2){
-			cantUnid = letters2numbers(texto);
-		}
-		numeroEntrante = cantMill + cantThou + cantHund + cantUnid;
-		return numeroEntrante;
-		
 	}
 
 }
