@@ -42,7 +42,6 @@ public class TextNumber {
 
 		System.out.println("Resultado= " + myApp.suma(numeroUno, numeroDos));
 
-		myApp.transformaCadena(numeroUno);
 	}
 
 	/**
@@ -121,37 +120,24 @@ public class TextNumber {
 		if (indMill > 0){
 			String cadMill = texto.substring(0, indMill+MILLION.length());
 			texto = texto.substring(indMill+MILLION.length());
-			//
-			String subCadMillThou = cadMill.substring(0, THOUSAND.length());
-			
-			//
 			cantMill = letters2numbers(cadMill);
-			System.out.println("la cadena hasta millones es: " +cadMill);
-			System.out.println("el numero en millones: " +cantMill);
 		}
 		int indThou = texto.indexOf(THOUSAND);
 		if (indThou > 0){
 			String cadThou = texto.substring(0, indThou+THOUSAND.length());
 			texto = texto.substring(indThou+THOUSAND.length());
 			cantThou = letters2numbers(cadThou);
-			System.out.println("la cadena hasta miles es: " +cadThou);
-			System.out.println("el numero en miles: " +cantThou);
 		}
 		int indHund = texto.indexOf(HUNDRED);
 		if (indHund > 0){
 			String cadHund = texto.substring(0, indHund+HUNDRED.length());
 			texto = texto.substring(indHund+HUNDRED.length());
 			cantHund = letters2numbers(cadHund);
-			System.out.println("la cadena hasta cientos es: " +cadHund);
-			System.out.println("el numero para cientos: " +cantHund);
 		}
 		if (texto.length()>2){
 			cantUnid = letters2numbers(texto);
-			System.out.println("la cadena para unidades y decenas es: " +texto);
-			System.out.println("el numero de unidades y decenas: " +cantUnid);
 		}
 		numeroEntrante = cantMill + cantThou + cantHund + cantUnid;
-		System.out.println("el numero entero ingresado segun nuevo metodo es: " +numeroEntrante);
 		return numeroEntrante;
 		
 	}
